@@ -1,5 +1,5 @@
-import { Roboto } from "@next/font/google";
 import MantineTheme from "@/components/MantineTheme";
+import Navigation from "@/components/navbar/Navigation";
 import "./global.css";
 
 export default function RootLayout({
@@ -12,7 +12,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <MantineTheme>{children}</MantineTheme>
+        <MantineTheme>
+          <Navigation />
+          {children}
+        </MantineTheme>
       </body>
     </html>
   );

@@ -1,10 +1,12 @@
 "use client";
 
 import { MantineProvider, ColorScheme } from "@mantine/core";
-import { Roboto } from "@next/font/google";
+import { Roboto_Slab } from "@next/font/google";
 import { ReactNode, useState } from "react";
 
-const roboto = Roboto({ subsets: ["latin"], weight: "400" });
+const robotoSlab = Roboto_Slab({
+  subsets: ["latin"],
+});
 
 interface MantineThemeProps {
   children: ReactNode;
@@ -17,9 +19,8 @@ export default function MantineTheme({ children }: MantineThemeProps) {
 
   return (
     <MantineProvider
-      theme={{ colorScheme, fontFamily: roboto.className }}
+      theme={{ colorScheme, fontFamily: robotoSlab.className }}
       withGlobalStyles
-      withNormalizeCSS
     >
       {children}
     </MantineProvider>

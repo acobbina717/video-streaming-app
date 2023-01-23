@@ -1,6 +1,14 @@
 "use client";
+import {
+  Button,
+  Overlay,
+  Text,
+  Title,
+  BackgroundImage,
+  Box,
+} from "@mantine/core";
+import { IconPlayerPlay } from "@tabler/icons";
 
-import { Button, Card, Text } from "@mantine/core";
 import { useStyles } from "./banner.styles";
 
 interface BannerProps {
@@ -16,30 +24,34 @@ export default function Banner({ title, subTitle, imgUrl }: BannerProps) {
   }
 
   return (
-    <Card
-      style={{ backgroundImage: `url(${imgUrl})` }}
-      className={cx(classes.card)}
-    >
-      <div className={classes.content}>
-        <Text size="lg" weight={700} className={classes.title}>
-          {title}
-        </Text>
+    <div className={classes.container}>
+      <BackgroundImage src={imgUrl} className={classes.image}>
+        <Overlay
+          gradient={`linear-gradient(105deg, ${theme.black} 20%, #312f2f 50%)`}
+          opacity={0.55}
+          zIndex={0}
+        />
 
-        <Text size="sm" className={classes.description}>
-          {subTitle}
-        </Text>
-
-        <Button
-          className={classes.action}
-          // onClick={handleOnPlay}
-          variant="white"
-          color="dark"
-          component="a"
-          size="xs"
-        >
-          Play
-        </Button>
-      </div>
-    </Card>
+        <Box className={classes.content}>
+          <div className={classes.leftContent}>
+            <Title className={classes.title}>{title}</Title>
+            <Text className={classes.subTitle}>{subTitle}</Text>
+            <div className={classes.actions}>
+              <Button
+                leftIcon={<IconPlayerPlay fill="100%" size={17} />}
+                className={classes.playButton}
+                variant={"white"}
+                styles={{ leftIcon: { color: "black" } }}
+                onClick={handleOnPlay}
+              >
+                <Text className={classes.playButtonText} color="dark">
+                  Play
+                </Text>
+              </Button>
+            </div>
+          </div>
+        </Box>
+      </BackgroundImage>
+    </div>
   );
 }

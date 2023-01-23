@@ -6,14 +6,11 @@ import Loading from "./loading";
 export default function Home() {
   return (
     <div>
-      <h1>Netflix</h1>
-      <Suspense fallback={<Loading />}>
-        <Banner
-          title="Movie"
-          subTitle="a movie"
-          imgUrl="/static/clifford.webp"
-        />
-      </Suspense>
+      <Banner
+        title="Movie with a long ass name "
+        subTitle="a movie with a long ass description for some reason "
+        imgUrl="/static/clifford.webp"
+      />
     </div>
   );
 }
