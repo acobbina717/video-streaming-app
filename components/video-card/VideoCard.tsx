@@ -20,12 +20,10 @@ function VideoCard({ imgUrl, title, size = "sm" }: VideoCardProps) {
   };
 
   return (
-    // <Container size={"xl"} mb={50}>
     <div>
       <Card cardSize={size} imgUrl={imgUrl} title={title} />
       {/* <DetailsCard title={title} cardSize={size} imgUrl={imgUrl} /> */}
     </div>
-    // </Container>
   );
 }
 

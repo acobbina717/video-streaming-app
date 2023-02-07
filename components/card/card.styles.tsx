@@ -11,10 +11,10 @@ export const useStyles = createStyles((theme) => ({
   sm: {
     // border: "2px solid red",
     position: "relative",
-    width: "242.656px",
+    // width: "240.656px",
     minWidth: "242.656px",
-    height: "136.492px",
-    minHeight: "170px",
+    // height: "170px",
+    minHeight: "180px",
     // borderRadius: "100px",
   },
 

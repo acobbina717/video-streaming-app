@@ -6,7 +6,7 @@ import NavigationDrawer from "@/components/navigation-drawer/NavigationDrawer";
 
 import { IconHome } from "@tabler/icons";
 import { ReactNode } from "react";
-import Videos from "@/components/videos-page/VideosPage";
+import VideosPage from "@/components/videos-page/VideosPage";
 
 export type ApplicationRoutes = {
   page: string;
@@ -51,7 +51,7 @@ function HomePage({}: Props) {
         },
       })}
     >
-      <Videos />
+      <VideosPage />
     </AppShell>
   );
 }
