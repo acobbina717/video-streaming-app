@@ -1,19 +1,39 @@
 import { createStyles } from "@mantine/core";
 export const useStyles = createStyles((theme) => ({
+  smCard: {
+    position: "relative",
+    width: "100%",
+    // minWidth: "300px",
+    minHeight: "190px",
+    // minHeight: "0",
+    // paddingBottom: "56.25%",
+    // paddingTop: "56.25%",
+  },
+
+  mdCard: {
+    position: "relative",
+    width: "150px",
+    minWidth: "150px",
+    // height: "280px",
+    minHeight: "280px",
+  },
+
   lgCard: {
-    minWidth: "250px",
+    position: "relative",
+    width: "218px",
+    minWidth: "218px",
+    height: "434px",
     minHeight: "434px",
   },
 
-  smCard: {
-    minWidth: "320px",
-    minHeight: "170px",
+  img: {
+    objectFit: "cover",
+    objectPosition: "center",
+    visibility: "inherit",
   },
 
-  category: {
-    color: theme.white,
-    opacity: 0.7,
-    fontWeight: 700,
-    textTransform: "uppercase",
+  details: {
+    margin: 12,
+    flex: "auto",
   },
 }));

@@ -11,6 +11,7 @@ interface Props extends ButtonProps {
 function NavigationButton({ page, pageRoute, icon, ...otherProps }: Props) {
   return (
     <Button
+      size="xs"
       component={Link}
       href={pageRoute}
       p={0}

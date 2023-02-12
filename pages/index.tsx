@@ -1,47 +1,22 @@
 import { AppShell } from "@mantine/core";
 import Header from "@/components/Header";
-
 import Navigation from "@/components/navigation/Navigation";
 import NavigationDrawer from "@/components/navigation-drawer/NavigationDrawer";
 
-import { IconHome } from "@tabler/icons";
-import { ReactNode } from "react";
-import VideosPage from "@/components/videos-page/VideosPage";
+import Content from "@/components/content/Content";
+import SectionCards from "@/components/section-cards/SectionCards";
 
-export type ApplicationRoutes = {
-  page: string;
-  pageRoute: string;
-  icon?: ReactNode;
-};
+import { getVideos } from "../lib/videos";
 
-type Props = {};
-
-function HomePage({}: Props) {
-  const appPages: ApplicationRoutes[] = [
-    {
-      page: "Home",
-      pageRoute: "/",
-      icon: IconHome({ height: "25px" }),
-    },
-    {
-      page: "Subscriptions",
-      pageRoute: "/",
-      icon: IconHome({ height: "25px" }),
-    },
-    {
-      page: "History",
-      pageRoute: "/",
-      icon: IconHome({ height: "25px" }),
-    },
-  ];
-
+function HomePage() {
+  const videos = getVideos();
   return (
     <AppShell
       padding="md"
       navbar={
         <>
-          <Navigation appPages={appPages} />
-          <NavigationDrawer appPages={appPages} />
+          <Navigation />
+          {/* <NavigationDrawer appPages={appPages} /> */}
         </>
       }
       header={<Header />}
@@ -51,7 +26,8 @@ function HomePage({}: Props) {
         },
       })}
     >
-      <VideosPage />
+      <Content videos={videos} />
+      <SectionCards videos={videos} title="Shorts" />
     </AppShell>
   );
 }

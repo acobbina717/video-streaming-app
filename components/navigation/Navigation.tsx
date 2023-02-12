@@ -1,26 +1,27 @@
 "use client";
-import { ApplicationRoutes } from "@/pages";
-import { Navbar, Space, Stack } from "@mantine/core";
-import NavigationButton from "../navigation-button/NavigationButton";
 
-type NavigationProps = {
-  appPages: ApplicationRoutes[];
-};
+import { Text, Navbar, Stack, UnstyledButton } from "@mantine/core";
+import Link from "next/link";
 
-export default function Navigation({ appPages }: NavigationProps) {
+import { IconHome } from "@tabler/icons";
+import { useStyles } from "./navigation.styles";
+
+export default function Navigation() {
+  const { classes } = useStyles();
+
   return (
-    <Navbar width={{ base: 100 }} height={"100vh"}>
-      <Stack align={"center"} spacing={"xs"}>
-        <Space />
-        <Space />
-        {appPages.map(({ page, pageRoute, icon }, idx) => (
-          <NavigationButton
-            key={idx}
-            page={page}
-            pageRoute={pageRoute}
-            icon={icon}
-          />
-        ))}
+    <Navbar top={56} bottom={0} left={0} zIndex={2028} width={{ base: 72 }}>
+      <Stack mt={4} spacing={"xs"}>
+        <UnstyledButton>
+          <Link className={classes.navLink} href={""}>
+            <div className={classes.logoWrapper}>
+              <IconHome stroke={"none"} />
+            </div>
+            <Text className={classes.navText} weight={400}>
+              Home
+            </Text>
+          </Link>
+        </UnstyledButton>
       </Stack>
     </Navbar>
   );

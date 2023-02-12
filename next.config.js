@@ -12,6 +12,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "i.ibb.co",
       },
+      {
+        protocol: "https",
+        hostname: "i.ytimg.com",
+      },
     ],
     fontLoaders: [
       { loader: "@next/font/google", options: { subsets: ["latin"] } },
