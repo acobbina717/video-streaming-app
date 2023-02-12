@@ -1,15 +1,10 @@
-import { ApplicationRoutes } from "@/pages";
 import { useAppContext } from "@/src/context/AppContext";
 import { Drawer, Space, Stack } from "@mantine/core";
 import { IconVideo } from "@tabler/icons";
 
 import NavigationButton from "../navigation-button/NavigationButton";
 
-type NavigationDrawerProps = {
-  appPages: ApplicationRoutes[];
-};
-
-function NavigationDrawer({ appPages }: NavigationDrawerProps) {
+function NavigationDrawer() {
   const { isDrawerOpen, setIsDrawerOpen } = useAppContext();
   return (
     <>
@@ -23,14 +18,14 @@ function NavigationDrawer({ appPages }: NavigationDrawerProps) {
         <Stack spacing={"xs"}>
           <Space />
           <Space />
-          {appPages.map(({ page, pageRoute, icon }, idx) => (
+          {/* {appPages.map(({ page, pageRoute, icon }, idx) => (
             <NavigationButton
               key={idx}
               page={page}
               pageRoute={pageRoute}
               icon={icon}
             />
-          ))}
+          ))} */}
         </Stack>
       </Drawer>
     </>
