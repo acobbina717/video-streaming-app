@@ -11,10 +11,11 @@ export const useStyles = createStyles({
   },
   cardWrapper: {
     display: "flex",
+    justifyContent: "",
     paddingTop: "1.7rem",
     paddingBottom: "1.5rem",
     marginTop: "1.5rem",
-    marginRight: "0.75rem",
+    // marginRight: "0.75rem",
     overflowX: "scroll",
     overflowY: "hidden",
   },

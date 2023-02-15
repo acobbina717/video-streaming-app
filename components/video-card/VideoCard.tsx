@@ -1,22 +1,32 @@
 "use client";
 
-import { Card, Grid, Text, Col, Paper, Title, Group } from "@mantine/core";
+import {
+  AspectRatio,
+  Card,
+  Flex,
+  Title,
+  Text,
+  Group,
+  Avatar,
+} from "@mantine/core";
 import Image from "next/image";
 import { ProfileButton } from "../profileButton/ProfileButton";
 
 import Link from "next/link";
 
 import { useStyles } from "./video-card.styles";
-import { FetchedVideos } from "@/lib/videos";
+import type { FetchedVideos } from "@/lib/videos";
+
+export type CardSize = "sm" | "md" | "lg";
 
 type VideoCardProps = {
-  size: "sm" | "md" | "lg";
+  size: CardSize;
   video: FetchedVideos;
 };
 
 function VideoCard({ video, size }: VideoCardProps) {
   const { classes } = useStyles();
-  const { imgUrl, title, channelTitle, description } = video;
+  const { imgUrl, title, channelTitle } = video;
 
   const classMap = {
     sm: classes.smCard,
@@ -25,59 +35,48 @@ function VideoCard({ video, size }: VideoCardProps) {
   };
 
   return (
-    <div>
-      <Card
-        className={classMap[size]}
-        mb={5}
-        shadow="xl"
-        radius="md"
-        style={{ overflow: "hidden" }}
-      >
+    <div style={{ padding: 3 }}>
+      <Card className={classMap[size]} mb={7} shadow="xl" radius="md">
         <Card.Section component={Link} href={""}>
-          <Image className={classes.img} src={imgUrl} alt={title} fill />
+          {size === "sm" ? (
+            <AspectRatio ratio={16 / 9}>
+              <Image className={classes.img} src={imgUrl} alt={title} fill />
+            </AspectRatio>
+          ) : (
+            <Image className={classes.img} src={imgUrl} alt={title} fill />
+          )}
         </Card.Section>
       </Card>
 
-      <Grid pl={5}>
-        {size === "sm" ? (
-          <Col span={"content"}>
-            <Link href={""}>
-              <ProfileButton />
-            </Link>
-          </Col>
-        ) : null}
-        <Col span={"auto"}>
-          <Paper>
-            <Title
-              style={{ WebkitLineClamp: 2, width: "90%" }}
-              size={"xl"}
-              pb={5}
-            >
-              {title}
-            </Title>
+      <Flex className={classes[`${size}Container`]}>
+        {size === "sm" ? <Avatar src={""} alt={""} radius="xl" /> : null}
 
+        <Flex direction={"column"} className={classes.body}>
+          <Title size={"h6"} className={classes.title}>
+            {title}
+          </Title>
+
+          <Text>{channelTitle}</Text>
+
+          <Group spacing={"xs"}>
             {size === "sm" ? (
               <>
-                <Text>{channelTitle}</Text>
-
-                <Group spacing={"xs"}>
-                  <Text size="sm" color="dimmed">
-                    1.5M Views
-                  </Text>
-                  .
-                  <Text size="sm" color="dimmed">
-                    2 days ago
-                  </Text>
-                </Group>
+                <Text size="sm" color="dimmed">
+                  1.5M Views
+                </Text>
+                .
+                <Text size="sm" color="dimmed">
+                  2 days ago
+                </Text>
               </>
             ) : (
               <Text size="sm" color="dimmed">
                 1.5M Views
               </Text>
             )}
-          </Paper>
-        </Col>
-      </Grid>
+          </Group>
+        </Flex>
+      </Flex>
     </div>
   );
 }

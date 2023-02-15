@@ -11,7 +11,7 @@ function Content({ videos }: ContentProps) {
     <Flex pt={24}>
       <Grid align={"center"} gutter={"xl"} justify={"center"} w={"100%"}>
         {videos.map((video) => (
-          <Grid.Col xl={3} lg={5} md={6} sm={6} xs={8} key={video.id}>
+          <Grid.Col xl={3} lg={4} md={4} sm={6} xs={6} key={video.id}>
             <VideoCard size="sm" video={video} />
           </Grid.Col>
         ))}

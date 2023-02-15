@@ -1,10 +1,21 @@
 import { createStyles } from "@mantine/core";
 export const useStyles = createStyles((theme) => ({
+  smContainer: {
+    width: "100%",
+  },
+
+  lgContainer: {
+    width: "218px",
+  },
+  mdContainer: {
+    width: "150px",
+  },
+
   smCard: {
     position: "relative",
     width: "100%",
     // minWidth: "300px",
-    minHeight: "190px",
+    // minHeight: "190px",
     // minHeight: "0",
     // paddingBottom: "56.25%",
     // paddingTop: "56.25%",
@@ -32,8 +43,14 @@ export const useStyles = createStyles((theme) => ({
     visibility: "inherit",
   },
 
-  details: {
-    margin: 12,
-    flex: "auto",
+  body: {
+    paddingLeft: 10,
+  },
+
+  title: {
+    display: "-webkit-box",
+    overflow: "hidden",
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: "vertical",
   },
 }));
